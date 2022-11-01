@@ -54,7 +54,7 @@ def get_inside_the_account_ami(driver):
 
 def open_lesson_by_time(driver):
     while True:
-        ##
+        ###
         currentDateAndTime = datetime.now()
         exact_time = currentDateAndTime.strftime("%H:%M")
         if exact_time == "15:33":
