@@ -12,7 +12,7 @@ import pywhatkit
 from selenium.webdriver.chrome.service import Service
 
 
-
+#
 def get_inside_the_account_liat(driver):
     source = driver.find_element("link text", "כניסה / הרשמה")
     source.click()
