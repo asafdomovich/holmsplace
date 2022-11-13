@@ -11,20 +11,6 @@ from datetime import datetime
 import pywhatkit
 from selenium.webdriver.chrome.service import Service
 
-# def choose_club(driver):
-#     time.sleep(2)
-#     source = driver.find_element("link text", "בחר מועדון")
-#     source.click()
-#     time.sleep(2)
-#     source = driver.find_element("id","popup-club")
-#     source.click()
-#     time.sleep(2)
-#     source = driver.find_element("id","popup-club-210")
-#     source.click()
-#     time.sleep(5)
-#     source = driver.find_element(By.XPATH, '/ html / body / div[1] / section[6] / div / p / a')
-#     driver.execute_script("arguments[0].click();", source)
-
 
 
 def get_inside_the_account_liat(driver):
@@ -57,11 +43,12 @@ def open_lesson_by_time(driver):
         ###
         currentDateAndTime = datetime.now()
         exact_time = currentDateAndTime.strftime("%H:%M")
-        if exact_time == "15:33":
-            register_to_lesson(driver)
+        if exact_time == "20:34":
+            register_to_spinning_lesson(driver)
+            pywhatkit.sendwhatmsg("+972585532002", "קבעתי לך שיעור ספינינג", 20, 36)
             break
         if exact_time == "22:36":
-            register_to_lesson(driver)
+            register_to_monday_buddy_pump_lesson(driver)
             pywhatkit.sendwhatmsg("+972585532002","קבעתי לך שיעור באדי פאמפ",22,37)
             break
 
@@ -75,14 +62,13 @@ def open_browser():
     open_lesson_by_time(driver)
 
 
-def register_to_lesson(driver):
+def register_to_spinning_lesson(driver):
     # choose_club(driver)
     time.sleep(5)
-
-    source = driver.find_element(By.XPATH,"//*[@id='Tuesday']/div[6]/div/a")
+    source = driver.find_element(By.XPATH,"//*[@id='Friday']/div[2]/div/a")
     driver.execute_script("arguments[0].click();", source)
     time.sleep(5)
-    source = driver.find_element(By.XPATH, "//*[@id='registerButtonMobile']/a")
+    source = driver.find_element(By.XPATH, "//*[@id='registerWithSeatBT']/a")
     driver.execute_script("arguments[0].click();", source)
     time.sleep(5)
     source = driver.find_element(By.XPATH, "//*[@id='lesson-reg-form']/div/div/div[1]/button/span")
